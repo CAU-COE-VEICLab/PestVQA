@@ -60,13 +60,13 @@ Based on the collected pest images, PestVQA constructs **152,056 image-question-
 
 For each image, questions are organized into **eight question types** across **four cognitive levels**, enabling systematic evaluation of different pest understanding abilities.
 
-| Cognitive Level | Task | Description |
+| Cognitive Level | Task | Main capability |
 |:---|:---|:---|
-| **L1: Visual Perception** | Pest-IC | Pest image captioning |
+| **L1: Visual Perception** | Pest-IC | Fine-grained image description |
 | | Pest-PJ | Pest presence judgment |
-| **L2: Fine-grained Recognition** | Pest-MCQ | Pest identification with multiple choices |
-| **L3: Attribute Understanding** | Pest-ATTR | Pest attributes and symptom understanding |
-| **L4: Reasoning and Decision-making** | Pest-REA | Pest reasoning and management recommendation |
+| **L2: Fine-grained Recognition** | Pest-MCQ | Pest identification |
+| **L3: Attribute Understanding** | Pest-ATTR | Pest attribute understanding |
+| **L4: Reasoning and Decision-making** | Pest-REA | Knowledge reasoning and IPM decision |
 
 ---
 
@@ -76,11 +76,11 @@ PestVQA establishes five evaluation tasks with unified evaluation protocols:
 
 | Task | Capability Evaluated | Metrics |
 |:---|:---|:---|
-| **Pest-IC** | Visual pest description | BLEU, ROUGE, METEOR, CIDEr |
+| **Pest-IC** | Visual pest description | BLEU, ROUGE, METEOR, CIDEr, GPT-5.4 Mini-aided evaluation |
 | **Pest-PJ** | Pest presence judgment | Accuracy, Token-F1 |
 | **Pest-MCQ** | Pest identification | Overall Accuracy, Macro Accuracy |
-| **Pest-ATTR** | Pest attribute understanding | Text generation metrics and semantic evaluation |
-| **Pest-REA** | Pest reasoning and management decision-making | Knowledge consistency and decision rationality |
+| **Pest-ATTR** | Pest attribute understanding | BLEU, ROUGE, METEOR, CIDEr |
+| **Pest-REA** | Pest reasoning and management decision-making | BLEU, ROUGE, METEOR, CIDEr, GPT-5.4 Mini-aided evaluation |
 
 These tasks evaluate LVLMs from basic visual understanding to professional pest management reasoning.
 
