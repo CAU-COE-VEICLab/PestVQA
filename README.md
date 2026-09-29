@@ -107,10 +107,7 @@ At the current stage, this repository releases the **PestVQA test set only**.
 ## Test Set Download
 
 - **Download link:**  
-  https://pan.quark.cn/s/1bd1f57389dd
-
-- **Quark share code:**  
-  `/~df933ZZBis~:/`
+  https://pan.quark.cn/s/6ae8ecd6c003?pwd=NpSx
 
 The dataset can be accessed by opening the link directly or searching the share code in the Quark Drive application.
 
