@@ -124,34 +124,26 @@ The dataset can be accessed by opening the link directly or searching the share 
 
 <div align="center">
 
-<img src="figures/framework.png" width="92%" alt="PestVQA framework">
+<img src="Figures/1.png" width="92%" alt="PestVQA framework">
 
 <p>
-<strong>Figure 1.</strong> Overview of PestVQA benchmark and VEG-Prompt framework.
+<strong>Figure 1.</strong>  Task system and text statistics of PestVQA.
 </p>
 
 <br>
 
-<img src="figures/dataset.png" width="92%" alt="PestVQA dataset statistics">
+<img src="Figures/2.png" width="92%" alt="PestVQA dataset statistics">
 
 <p>
-<strong>Figure 2.</strong> Dataset statistics and image examples of PestVQA.
+<strong>Figure 2.</strong> Representative samples from PestVQA.
 </p>
 
 <br>
 
-<img src="figures/tasks.png" width="92%" alt="PestVQA task hierarchy">
+<img src="Figures/3.png" width="92%" alt="PestVQA task hierarchy">
 
 <p>
-<strong>Figure 3.</strong> Task hierarchy and evaluation protocol of PestVQA.
-</p>
-
-<br>
-
-<img src="figures/samples.png" width="92%" alt="PestVQA samples">
-
-<p>
-<strong>Figure 4.</strong> Representative image-question-answer samples.
+<strong>Figure 3.</strong> Workflow of the VEG-Prompt method.
 </p>
 
 </div>
