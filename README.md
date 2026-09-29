@@ -104,8 +104,8 @@ At the current stage, this repository releases the **PestVQA test set only**.
 The dataset can be accessed by opening the link directly or searching the share code in the Quark Drive application.
 
 > [!IMPORTANT]
-> The training and validation sets are temporarily unavailable during manuscript review.
-> The complete PestVQA dataset will be released on **Hugging Face** after the paper is officially accepted.
+> To facilitate evaluation and reproducibility during the review period, we currently provide publicly available image samples, dataset statistics, and the PestVQA test set.
+> The complete PestVQA dataset, including the training set, annotations, and associated resources, will be released on **Hugging Face** after the paper is officially accepted.
 
 ---
 
