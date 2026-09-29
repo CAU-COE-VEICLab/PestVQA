@@ -60,14 +60,6 @@ Based on the collected pest images, PestVQA constructs **152,056 image-question-
 
 For each image, questions are organized into **eight question types** across **four cognitive levels**, enabling systematic evaluation of different pest understanding abilities.
 
-| Cognitive Level | Task | Main capability |
-|:---|:---|:---|
-| **L1: Visual Perception** | Pest-IC | Fine-grained image description |
-| | Pest-PJ | Pest presence judgment |
-| **L2: Fine-grained Recognition** | Pest-MCQ | Pest identification |
-| **L3: Attribute Understanding** | Pest-ATTR | Pest attribute understanding |
-| **L4: Reasoning and Decision-making** | Pest-REA | Knowledge reasoning and IPM decision |
-
 ---
 
 # 📊 Evaluation Tasks
