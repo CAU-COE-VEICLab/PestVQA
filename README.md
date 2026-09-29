@@ -1,8 +1,8 @@
 <div align="center">
 
-# PestMMD
+# PestVQA
 
-### A Multi-modal Multi-task Dataset and Pest-Evidence Guided Prompting Method for Pest Understanding
+### A Visual Question Answering Benchmark and Visual Evidence-Guided Prompting Method for Pest Management
 
 <p>
   <em>Manuscript submitted to <strong>Computers and Electronics in Agriculture (CEA)</strong> in 2026.</em>
@@ -15,148 +15,164 @@
   <a href="#release-plan">
     <img src="https://img.shields.io/badge/Full%20Dataset-After%20Paper%20Acceptance-orange" alt="Full Dataset">
   </a>
-  <a href="#dataset-components">
-    <img src="https://img.shields.io/badge/Tasks-Classification%20%7C%20Detection%20%7C%20VQA-blue" alt="Tasks">
+  <a href="#benchmark-components">
+    <img src="https://img.shields.io/badge/Tasks-5%20Evaluation%20Tasks-blue" alt="Tasks">
   </a>
-  <img src="https://img.shields.io/badge/Classes-46-purple" alt="Classes">
+  <img src="https://img.shields.io/badge/Pest%20Categories-46-purple" alt="Classes">
 </p>
 
 </div>
 
 ---
 
-## 📌 Overview
+# 📌 Overview
 
-**PestMMD** is a multi-modal and multi-task dataset developed for comprehensive plant pest understanding. It integrates pest image classification, pest object detection, and pest-oriented visual question answering under a unified taxonomy of **46 common agricultural pest categories**.
+**PestVQA** is a visual question answering benchmark designed for comprehensive pest understanding and management decision-making.
 
-PestMMD supports research on:
+Unlike conventional pest recognition datasets that mainly focus on classification and localization, PestVQA aims to evaluate whether vision-language models can understand pest-related visual information, extract fine-grained attributes, perform domain-specific reasoning, and provide management-oriented recommendations.
 
-- Fine-grained pest image classification;
-- Pest detection and localization in complex agricultural environments;
-- Understanding of pest symptoms, host plants, and damaged organs;
-- Reasoning about pest spread and dispersal;
-- Generation of Integrated Pest Management recommendations;
-- Vision-language reasoning guided by explicit pest evidence.
+PestVQA integrates:
 
-The complete PestMMD dataset consists of three subsets:
+- **19,007 high-quality pest images**;
+- **152,056 image-question-answer triplets**;
+- **46 agricultural pest categories**;
+- **Five evaluation tasks with corresponding metrics**.
 
-| Subset | Task | Scale |
-|:---|:---|---:|
-| **PestCLS** | Pest image classification | 19,007 images |
-| **PestDET** | Pest object detection | 15,108 annotated images |
-| **PestUCD** | Pest understanding and decision-making VQA | 152,056 question-answer pairs |
-| **Taxonomy** | Unified pest categories | 46 categories |
-
-PestUCD contains eight question types organized into four cognitive levels, covering the complete reasoning process from basic visual perception to pest management decision-making.
+The benchmark covers the complete reasoning process from visual perception to pest management decision-making, providing a unified platform for training and evaluating vision-language models in agricultural pest scenarios.
 
 ---
 
-## 📂 Dataset Components
+# 📂 Benchmark Components
 
-### PestCLS
+## Pest Image Collection
 
-PestCLS contains **19,007 pest images** covering 46 common agricultural pest categories. The images exhibit diverse pest scales, viewing angles, host plants, illumination conditions, and background environments.
+The PestVQA image collection contains **19,007 high-quality pest images** covering **46 common agricultural pest categories**.
 
-PestCLS is designed to evaluate fine-grained pest recognition in both controlled and complex agricultural scenes.
+The images were collected from publicly available datasets and online resources, followed by multi-stage quality control involving automatic filtering and expert verification.
 
-### PestDET
-
-PestDET contains **15,108 images** with manually reviewed pest bounding-box annotations. During dataset construction, only images containing clearly visible and spatially identifiable pest individuals were retained.
-
-The annotations are provided in the YOLO format. PestDET supports pest detection and localization research, particularly under challenging conditions involving small objects, occlusion, and complex backgrounds.
-
-### PestUCD
-
-PestUCD is a pest-oriented visual question-answering dataset constructed from the 19,007 pest images. Each image is associated with eight question types organized into four cognitive levels:
-
-| Cognitive Level | Question Type |
-|:---|:---|
-| **L1: Visual Perception** | Image Captioning |
-|  | Pest Presence Judgment |
-| **L2: Fine-grained Recognition** | Pest Identification |
-| **L3: Attribute Understanding** | Symptom Description |
-|  | Host Plant Identification |
-|  | Damaged Organ Identification |
-| **L4: Reasoning and Decision-making** | Pest Spread Reasoning |
-|  | Integrated Pest Management Recommendation |
-
-PestUCD contains **152,056 image-question-answer pairs**. The answers were generated or selected under the constraints of a manually reviewed pest knowledge base to ensure professional accuracy and semantic consistency.
+The dataset includes diverse pest appearances, host plants, damage symptoms, illumination conditions, and background environments, providing challenging scenarios for fine-grained pest understanding.
 
 ---
 
-## 📥 Dataset Access
+## Image-Question-Answer Dataset
 
-At the current stage, this repository releases the **PestMMD test set only**.
+Based on the collected pest images, PestVQA constructs **152,056 image-question-answer triplets**.
 
-### Test Set Download
+For each image, questions are organized into **eight question types** across **four cognitive levels**, enabling systematic evaluation of different pest understanding abilities.
 
-The test set is temporarily hosted on Quark Drive:
+| Cognitive Level | Task | Description |
+|:---|:---|:---|
+| **L1: Visual Perception** | Pest-IC | Pest image captioning |
+| | Pest-PJ | Pest presence judgment |
+| **L2: Fine-grained Recognition** | Pest-MCQ | Pest identification with multiple choices |
+| **L3: Attribute Understanding** | Pest-ATTR | Pest attributes and symptom understanding |
+| **L4: Reasoning and Decision-making** | Pest-REA | Pest reasoning and management recommendation |
 
-- **Download link:** https://pan.quark.cn/s/1bd1f57389dd
-- **Quark share code:** `/~df933ZZBis~:/`
+---
 
-The dataset can be accessed by opening the download link directly or by copying the complete share code into the Quark Drive application.
+# 📊 Evaluation Tasks
+
+PestVQA establishes five evaluation tasks with unified evaluation protocols:
+
+| Task | Capability Evaluated | Metrics |
+|:---|:---|:---|
+| **Pest-IC** | Visual pest description | BLEU, ROUGE, METEOR, CIDEr |
+| **Pest-PJ** | Pest presence judgment | Accuracy, Token-F1 |
+| **Pest-MCQ** | Pest identification | Overall Accuracy, Macro Accuracy |
+| **Pest-ATTR** | Pest attribute understanding | Text generation metrics and semantic evaluation |
+| **Pest-REA** | Pest reasoning and management decision-making | Knowledge consistency and decision rationality |
+
+These tasks evaluate LVLMs from basic visual understanding to professional pest management reasoning.
+
+---
+
+# 🌱 Visual Evidence-Guided Prompting
+
+Besides the benchmark, PestVQA introduces **Visual Evidence-Guided Prompting (VEG-Prompt)**, a training-free and plug-and-play approach for improving LVLM performance in pest management scenarios.
+
+VEG-Prompt consists of:
+
+- **Visual Evidence Construction (VEC):** extracting image-related evidence;
+- **Question-aware Evidence Integration (QEI):** selecting reliable evidence according to question types;
+- **Dynamic System Prompting (DSP):** generating adaptive prompts for LVLM inference.
+
+By explicitly incorporating reliable visual evidence, VEG-Prompt improves pest recognition, attribute understanding, and management reasoning.
+
+---
+
+# 📥 Dataset Access
+
+At the current stage, this repository releases the **PestVQA test set only**.
+
+## Test Set Download
+
+- **Download link:**  
+  https://pan.quark.cn/s/1bd1f57389dd
+
+- **Quark share code:**  
+  `/~df933ZZBis~:/`
+
+The dataset can be accessed by opening the link directly or searching the share code in the Quark Drive application.
 
 > [!IMPORTANT]
-> The PestMMD training and validation sets are not publicly available while the associated manuscript is under review. The complete dataset will be released on **Hugging Face** after the paper is officially accepted.
+> The training and validation sets are temporarily unavailable during manuscript review.
+> The complete PestVQA dataset will be released on **Hugging Face** after the paper is officially accepted.
 
 ---
 
-## 🖼️ Dataset Overview
+# 🖼️ Benchmark Overview
 
 <div align="center">
 
-<img src="figures/4.png" width="92%" alt="Pest-evidence guided prompting framework">
+<img src="figures/framework.png" width="92%" alt="PestVQA framework">
 
 <p>
-  <strong>Figure 1.</strong> Overall framework of the pest-evidence guided prompting method.
+<strong>Figure 1.</strong> Overview of PestVQA benchmark and VEG-Prompt framework.
 </p>
 
 <br>
 
-<img src="figures/1.png" width="92%" alt="PestCLS and PestDET overview">
+<img src="figures/dataset.png" width="92%" alt="PestVQA dataset statistics">
 
 <p>
-  <strong>Figure 2.</strong> Representative samples and data distributions of PestCLS and PestDET.
+<strong>Figure 2.</strong> Dataset statistics and image examples of PestVQA.
 </p>
 
 <br>
 
-<img src="figures/2.png" width="92%" alt="PestUCD task hierarchy and statistics">
+<img src="figures/tasks.png" width="92%" alt="PestVQA task hierarchy">
 
 <p>
-  <strong>Figure 3.</strong> Task hierarchy, cognitive levels, and textual statistics of PestUCD.
+<strong>Figure 3.</strong> Task hierarchy and evaluation protocol of PestVQA.
 </p>
 
 <br>
 
-<img src="figures/3.png" width="92%" alt="Representative PestUCD samples">
+<img src="figures/samples.png" width="92%" alt="PestVQA samples">
 
 <p>
-  <strong>Figure 4.</strong> Representative image-question-answer samples from PestUCD.
+<strong>Figure 4.</strong> Representative image-question-answer samples.
 </p>
 
 </div>
 
 ---
 
-## 🚀 Release Plan
+# 🚀 Release Plan
 
-- [x] Release the PestMMD test set
-- [ ] Release the complete PestCLS dataset
-- [ ] Release the complete PestDET dataset and annotations
-- [ ] Release the complete PestUCD dataset
-- [ ] Release the pest knowledge base
-- [ ] Release standardized metadata and data split files
-- [ ] Release training and evaluation code
-- [ ] Release the complete dataset on Hugging Face after paper acceptance
-
-The Hugging Face dataset link will be added to this repository after the associated paper is officially accepted.
+- [x] Release PestVQA test set
+- [ ] Release training set
+- [ ] Release validation set
+- [ ] Release complete image-question-answer annotations
+- [ ] Release pest knowledge base
+- [ ] Release evaluation scripts
+- [ ] Release VEG-Prompt implementation code
+- [ ] Release complete dataset on Hugging Face after paper acceptance
 
 ---
 
 <div align="center">
 
-### ⭐ If PestMMD is useful for your research, please consider starring this repository.
+### ⭐ If PestVQA is useful for your research, please consider starring this repository.
 
 </div>
