@@ -151,13 +151,8 @@ The dataset can be accessed by opening the link directly or searching the share 
 
 - [x] Release PestVQA test set
 - [ ] Release training set
-- [ ] Release validation set
 - [ ] Release complete image-question-answer annotations
 - [ ] Release pest knowledge base
-- [ ] Release evaluation scripts
-- [ ] Release VEG-Prompt implementation code
-- [ ] Release complete dataset on Hugging Face after paper acceptance
-
 ---
 
 <div align="center">
